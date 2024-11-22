@@ -1,0 +1,15 @@
+name: Assign new issues to specific user
+on:
+  issues:
+    types: [opened]
+permissions:
+  issues: write 
+jobs:
+  label_issue:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Assign user
+        uses: actions-ecosystem/action-assign@v2
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          assignees: rachelj3
